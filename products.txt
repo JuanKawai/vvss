@@ -5,3 +5,4 @@
 12 snickert aliment 20
 15 asd asd 10
 255 snickert aliment 255
+36 asdasd it 50

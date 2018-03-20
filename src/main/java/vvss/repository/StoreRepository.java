@@ -46,7 +46,7 @@ public class StoreRepository {
                 return ("This code already exists");
             }
         } else {
-            return ("code q");
+            return ("The product infomation is not valid!");
         }
         return ("success");
     }
