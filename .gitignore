@@ -1,0 +1,13 @@
+target/
+.idea/*
+*.iml
+*.log
+.gradle/
+build/
+node/
+node_modules/
+typings/
+!.idea/runConfigurations
+!.idea/externalDependencies.xml
+out
+.idea
