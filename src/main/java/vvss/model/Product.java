@@ -105,5 +105,28 @@ public class Product {
         this.supplier = supplier;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Product product = (Product) o;
+
+        if (getCode() != product.getCode()) return false;
+        if (getQuantity() != product.getQuantity()) return false;
+        if (getName() != null ? !getName().equals(product.getName()) : product.getName() != null) return false;
+        if (getCategory() != null ? !getCategory().equals(product.getCategory()) : product.getCategory() != null)
+            return false;
+        return getSupplier() != null ? getSupplier().equals(product.getSupplier()) : product.getSupplier() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCode();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getCategory() != null ? getCategory().hashCode() : 0);
+        result = 31 * result + (getSupplier() != null ? getSupplier().hashCode() : 0);
+        result = 31 * result + getQuantity();
+        return result;
+    }
 }

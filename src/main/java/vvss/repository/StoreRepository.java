@@ -1,7 +1,6 @@
 package vvss.repository;
 
 
-
 import vvss.model.Product;
 
 import java.io.*;
@@ -9,6 +8,12 @@ import java.util.ArrayList;
 
 public class StoreRepository {
     private ArrayList<Product> allProducts = new ArrayList<Product>();
+    private String filename;
+
+
+    public StoreRepository(String filename) {
+        this.filename = filename;
+    }
 
     public ArrayList<Product> getAllProducts() {
         return allProducts;
@@ -29,7 +34,7 @@ public class StoreRepository {
 
     public String addNewProduct(Product p) throws IOException {
         if (p.getCode() > 0 && p.getQuantity() >= 0 && p.getCode() < Integer.MAX_VALUE && p.getQuantity() < Integer.MAX_VALUE && !illegal(p.getName())) {
-            BufferedWriter out = new BufferedWriter(new FileWriter("products.txt", true));
+            BufferedWriter out = new BufferedWriter(new FileWriter(this.filename, true));
             int k = 1;
             for (Product i : allProducts) {
                 if (i.getCode() == p.getCode()) {
@@ -81,6 +86,10 @@ public class StoreRepository {
 
     public ArrayList<Product> stockSituation() {
         return allProducts;
+    }
+
+    public Product getFirst() {
+        return allProducts.size() == 0 ? null : allProducts.get(0);
     }
 
 }
